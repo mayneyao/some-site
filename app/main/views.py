@@ -9,6 +9,9 @@ import json,os
 PER_PAGE=20
 
 
+@main.route("/tset_hook")
+def testhook():
+    return "ok"
 
 @main.route('/manage')
 @login_required
