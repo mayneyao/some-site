@@ -16,13 +16,11 @@ def manage():
     all_posts = [(i.title,i.subtime,i.id) for i in Post.query.all()]
     return render_template("manage.html",posts=all_posts)
 
-# @main.route('/hook',methods=['POST'])
-# def hook():
-#     data = json.loads(request.get_data())
-#     with open("temp.json",'w') as f:
-#         json.dump(data,f)
-#     os.popen("cd ../gine && git pull")
-#     return "ok"
+@main.route('/hook',methods=['POST'])
+def hook():
+    #request.get_data()
+    os.popen("cd /root/gine && git pull && pkill gunicorn && gunicorn manage:app")
+    return "ok"
 
 @main.route("/od")
 def dulfy():
