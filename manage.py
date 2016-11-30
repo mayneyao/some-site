@@ -10,7 +10,7 @@ manager.add_command('db',MigrateCommand)
 
 if __name__ == '__main__':
     manager.run()
-#test
+#test1
 #数据库更新操作
 ##1.创建迁移仓库 python manage.py db init(第一次需要)
 ##2.创建迁移脚本 python manage.py db migrate -m "initial migration"
