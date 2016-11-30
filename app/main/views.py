@@ -22,7 +22,8 @@ def manage():
 @main.route('/hook',methods=['POST'])
 def hook():
     #request.get_data()
-    os.popen("cd /root/gine && git pull")
+    os.popen("cd /root/gine")
+    os.popen("git pull")
     os.popen("pkill gunicorn && gunicorn manage:app")
     return "ok"
 
