@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    {{ moment.include_moment() }}
+    {{ moment.lang('zh-CN') }}
+    <link rel="icon" href="/static/img/logo.png" type="image/png" >
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+{#    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">#}
+{#    <link rel="stylesheet" href="/static/bootstrap.css">#}
+    <link rel="stylesheet" href="/static/oh_my_css.css">
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div class="header">
+    <div class="navbar">
+        <span id="logo"><a href="/"><img src="/static/img/logo.png"  width="120px" height="auto"></a></span>
+        <ul>
+            <li><a href="/tags">标签</a></li>
+            <li><a href="/meiju">追剧</a></li>
+            <li><a href="http://mayneyao.github.io/resume/">关于</a></li>
+            <li><a id="menu-toggle" href="#">菜单</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<div id="main" class="box">
+    {% block body %}
+    {% endblock %}
+</div>
+<div id="footer">
+    <div class="footinfo">
+        <p>Copyright © 2016 Mayne All Rights Reserved</p>
+        <span><a href="https://github.com/MayneYao"><img src="/static/img/github.png" alt=""></a></span>
+    </div>
+</div>
+
+{#全局div#}
+    <div id="mask"></div>
+    <div id="sidebar">
+    <ul>
+        {% if current_user.is_authenticated %}
+            <li><a href="">{{ current_user.email }}</a></li>
+            <li><a href="/logout">登出</a></li>
+        {% else %}
+            <li><a href="/login">登录</a></li>
+        {% endif %}
+        <li><a href="/subpost">发表文章</a></li>
+        {% if post %}
+        <li><a href="/edit/{{ post.id }}">修改文章</a></li>
+        {% else %}
+        {% endif %}
+        <li><a href="/manage">后台管理</a></li>
+    </ul>
+    </div>
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+        <div class="flash">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+
+{#    <button id="back2top" onclick="back2top()">#}
+{#    返回顶部#}
+{#    </button>#}
+<script src="/static/oh_my_js.js"></script>
+{% block scripts %}
+{% endblock %}
+</body>
+</html>

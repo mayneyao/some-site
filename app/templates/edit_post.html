@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+    编辑文章
+{% endblock %}
+{% block body %}
+    <form action="/edit/{{ p_id }}" method="POST" id="subpost">
+        {{ form.hidden_tag()  }}
+        {{ form.title(id='post_title',placeholder="标题" ) }}
+        {{ form.content() }}
+            <hr>
+        {{ form.submit(id='post_submit') }}
+    </form>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    {{ pagedown.include_pagedown() }}
+{% endblock %}

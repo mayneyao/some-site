@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="">
+    <form action="/meiju" method="post" class="pure-form">
+        <input type="text" name="name" placeholder="剧名" >
+        <input type="text" name="added" placeholder="剧集">
+        <input type="submit" name="" id="" class="pure-button pure-button-primary">
+    </form>
+    {% if flag %}
+    <table  class="pure-table ">
+    <thead>
+    <tr>
+        <td>资源</td>
+        <td>上传时间</td>
+        <td>资源大小</td>
+        <td>参考值</td>
+    </tr>
+    </thead>
+    <tbody>
+        {% for i in res %}
+            <tr>
+                <td><a href="{{ i[3] }}">{{ i[0] }}</a></td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[4]+i[5] }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    {% else %}
+        <p>/(ㄒoㄒ)/~~ 抱歉没找到您要的资源</p>
+    {% endif %}
+    </div>
+{% endblock %}

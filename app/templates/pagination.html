@@ -1,0 +1,28 @@
+{% macro pagination_widget(pagination,endpoint) %}
+
+<div class="paginator">
+<ul class="pure-paginator">
+    <li class="page-button">
+        <a {% if not pagination.has_prev %}class="page-button-disable"{% endif %} href="{% if pagination.has_prev %}{{ url_for(endpoint,page=pagination.page - 1,**kwargs)}}{% else %}#{% endif %}">&#171;</a>
+    </li>
+    {% for p in pagination.iter_pages()  %}
+    {% if p  %}
+        {% if p ==pagination.page %}
+            <li class="page-button pure-button-active">
+                <a href="{{ url_for(endpoint,page=p,**kwargs) }}" >{{ p }}</a>
+            </li>
+            {% else %}
+            <li class="page-button ">
+                <a href="{{ url_for(endpoint,page=p,**kwargs) }}">{{ p }}</a>
+            </li>
+            {% endif %}
+        {% else  %}
+        <li class="page-button"><a href="#" >&hellip;</a></li>
+        {% endif %}
+    {% endfor %}
+    <li  class="page-button">
+        <a {% if not pagination.has_next %}class="page-button-disable"{% endif %} href="{% if pagination.has_next %}{{ url_for(endpoint,page=pagination.page + 1,**kwargs)}}{% else %}#{% endif %}">&#187;</a>
+    </li>
+</ul>
+</div>
+{% endmacro %}

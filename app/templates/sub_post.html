@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block body %}
+    <form action="/subpost" method="POST" id="subpost">
+        {{ form.hidden_tag()  }}
+        {{ form.title(id='post_title',placeholder="标题" ) }}
+        {{ form.title(id='tag',placeholder="标签，逗号分隔" ) }}
+        {{ form.content() }}
+            <hr>
+        {{ form.submit(id='post_submit') }}
+    </form>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    {{ pagedown.include_pagedown() }}
+{% endblock %}

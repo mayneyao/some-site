@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body %}
+{#    <form action="/login" method="post" class="pure-form pure-form-stacked pure-input-1-2">#}
+{#    {{ form.hidden_tag() }}#}
+{#    {{ form.email(type="email") }}#}
+{#    {{ form.password() }}#}
+{#    {{ form.remember_me }}#}
+{#    {{ form.submit(class="btn btn-info") }}#}
+{#    </form>#}
+
+{% import 'bootstrap/wtf.html' as wtf %}
+{{ wtf.quick_form(form) }}
+{% endblock %}
