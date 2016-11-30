@@ -11,7 +11,7 @@ PER_PAGE=20
 
 @main.route("/tset_hook")
 def testhook():
-    return "ok2"
+    return "ok3"
 
 @main.route('/manage')
 @login_required
