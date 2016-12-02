@@ -29,10 +29,11 @@ def post_by_summary():
     return render_template("allpost_v2.html",posts=i)
 
 
-@main.route("/book_hook")
+@main.route("/book_hook",method=['POST'])
 def bookhook():
-
-    return "ok3"
+    if request.method=='POST':
+        x = request.get_json()
+    return x
 
 @main.route('/manage')
 @login_required
