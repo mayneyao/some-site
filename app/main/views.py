@@ -33,7 +33,8 @@ def post_by_summary():
 def bookhook():
     if request.method=='POST':
         x = request.get_json()
-    return x
+        date = x["dates"]["created"]
+    return date
 
 @main.route('/manage')
 @login_required
