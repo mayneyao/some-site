@@ -5,10 +5,10 @@ from ..models import Post,User
 from .forms import PostForm,LoginForm
 from flask.ext.login import login_user,login_required,logout_user
 from .util import TPB
+from ..config import POST_PATH
 import json,os,re
 
 PER_PAGE=20
-
 
 
 @main.route("/p_v2/<name>")
@@ -19,10 +19,9 @@ def post_v2(name):
     return render_template("p_v2.html",content=content,title=name)
 
 
-@main.route("/summary")
+@main.route("/")
 def post_by_summary():
-    post_path = "/root/blog/"
-    index = post_path+"SUMMARY.md"
+    index = POST_PATH+"SUMMARY.md"
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
         i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)",text)
@@ -66,7 +65,7 @@ def meiju():
         return render_template("meiju_kong.html")
 
 
-@main.route('/',methods=['POST','GET'])
+@main.route('/summary',methods=['POST','GET'])
 def index():
     page = request.args.get('page',1,type=int)
     pagination = Post.query.order_by(Post.subtime.desc()).paginate(page,per_page=PER_PAGE,error_out=False)
@@ -80,24 +79,11 @@ def post(id):
     tag = post.tag.split(",")
     content = md.convert(content)
     return render_template('p.html',post=post,content = content,tag=tag)
-    # p_title  = "我的第一篇文章"
-    # p_subtime = "2016年7月30日15:42:19"
-    # p_times = "2000"
-    # with open('E:\\mysite\\templates\\1.md','r',encoding='utf-8') as f:
-    #     md = f.read()
-    #     p_content = util.md2html(md)
-    #
-    # post = {'p_title':p_title,'p_subtime':p_subtime,'p_times':p_times,'p_content':p_content,'p_id':p_id}
-    # return  render_template('p.html',post=post)
+
 
 @main.route('/subpost',methods=['POST','GET'])
 @login_required
 def sub_post():
-    # title= None
-    # content = None
-    # tag = None
-    #form = PostForm()
-    #if form.validate_on_submit():
     if request.method== 'POST':
         title= request.form["title"]
         tag = request.form["tag"]
@@ -147,22 +133,6 @@ def logout():
     flash("you have been logged out.")
     return redirect(url_for('main.index'))
 
-# @main.route('/posts',methods=['POST','GET'])
-# def all_post():
-#     if request.method =="POST":
-#         pass
-#     posts = Post.query.all()
-#     #posts = posts[-20:-1]
-#     posts = reversed(posts)
-#     return render_template('allpost.html',posts=posts)
-
-@main.route('/search')
-def search():
-    pass
-
-@main.route('/test')
-def webtest():
-    return render_template('logint.html')
 
 @main.route('/wiki/<word>')
 def wiki(word):
@@ -175,5 +145,10 @@ def wiki(word):
     page_text = page.text()[0:50]
     return  page_text
 
+@main.route('/search')
+def search():
+    pass
 
-
+@main.route('/test')
+def webtest():
+    return render_template('logint.html')
