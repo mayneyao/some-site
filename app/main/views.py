@@ -5,12 +5,24 @@ from ..models import Post,User
 from .forms import PostForm,LoginForm
 from flask.ext.login import login_user,login_required,logout_user
 from .util import TPB
-import json,os
+import json,os,re
+
 PER_PAGE=20
 
 
-@main.route("/tset_hook")
-def testhook():
+@main.route("/summary")
+def post_by_summary():
+    post_path = "/root/blog"
+    index = post_path+"SUMMARY.md"
+    with open(index,'r',encoding='utf-8') as f:
+        text = f.read()
+        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)",text)
+    return render_template("allpost_v2.html",posts=i)
+
+
+@main.route("/book_hook")
+def bookhook():
+
     return "ok3"
 
 @main.route('/manage')

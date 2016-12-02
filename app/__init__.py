@@ -21,7 +21,7 @@ def create_app():
     app.config['SECRET_KEY'] = SECRET_KEY
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://{0}:{1}@{2}/{3}'.format(sql_user,sql_pwd,sql_ip,sql_name)
     app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] =True
-    #app.debug=True
+    app.debug=True
     bootstrap.init_app(app)
     moment.init_app(app)
     db.init_app(app)
