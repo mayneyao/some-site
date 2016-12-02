@@ -31,7 +31,7 @@ def post_by_summary():
 @main.route("/book_hook",methods=['POST'])
 def bookhook():
     if request.method=='POST':
-        os.popen("cd /root/blog&&git pull")
+        os.system("cd /root/blog ; git pull")
     return "ok"
 
 @main.route('/manage')
@@ -43,7 +43,7 @@ def manage():
 @main.route('/hook',methods=['POST'])
 def hook():
     #request.get_data()
-    os.popen("cd /root/gine ; git pull ; pkill gunicorn ; gunicorn manage:app")
+    os.system("cd /root/gine ; git pull ; pkill gunicorn ; gunicorn manage:app")
     return "ok"
 
 @main.route("/od")
