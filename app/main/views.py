@@ -29,7 +29,7 @@ def post_by_summary():
     return render_template("allpost_v2.html",posts=i)
 
 
-@main.route("/book_hook",method=['POST'])
+@main.route("/book_hook",methods=['POST'])
 def bookhook():
     if request.method=='POST':
         x = request.get_json()
