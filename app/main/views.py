@@ -32,7 +32,7 @@ def post_by_summary():
 @main.route("/book_hook",methods=['POST'])
 def bookhook():
     if request.method=='POST':
-        x = request.get_json()
+        os.popen("cd /root/blog; git pull")
     return "ok"
 
 @main.route('/manage')
