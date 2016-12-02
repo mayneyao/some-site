@@ -10,6 +10,15 @@ import json,os,re
 PER_PAGE=20
 
 
+
+@main.route("/p_v2/<name>")
+def post_v2(name):
+    file  = "/root/blog/"+name+".md"
+    with open(file,'r',encoding='utf-8') as f:
+        content = md.convert(f.read())
+    return render_template("p_v2.html",content=content,title=name)
+
+
 @main.route("/summary")
 def post_by_summary():
     post_path = "/root/blog/"

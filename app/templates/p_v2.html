@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+{% block body %}
+    <div id="post">
+    <h1 id="p_title">{{ title}}</h1>
+{#        <span class="post_info">发表时间:{{ post.subtime}} </span>#}
+{#        {% for t in tag %}#}
+{#            <span class="tag">{{ t }}</span>#}
+{#        {% endfor %}#}
+{#         浏览量:{{ post.p_times }}次#}
+        <hr>
+        <article id="">
+            {{ content|safe }}
+        </article>
+    </div>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="{{ name }}" data-title="{{ name }}" data-url="/p/{{ name }}"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gine"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+{% endblock %}
+
