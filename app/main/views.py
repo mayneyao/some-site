@@ -12,7 +12,7 @@ PER_PAGE=20
 
 @main.route("/summary")
 def post_by_summary():
-    post_path = "/root/blog"
+    post_path = "/root/blog/"
     index = post_path+"SUMMARY.md"
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
