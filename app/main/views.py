@@ -25,7 +25,12 @@ def post_by_summary():
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
         i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*",text)
-        posts = [(name,url,tags[1:-1].split(",")) for name,url,tags in i]
+        posts=[]
+        for name,url,tags in i:
+            tags = tags[1:-1].split(",")
+            tags = [tag+str(hash(tag)%6+1) for tag in tags]
+            posts.append((name,url,tags))
+        #posts = [(name,url,tags[1:-1].split(",")) for name,url,tags in i]
     return render_template("allpost_v2.html",posts=posts)
 
 

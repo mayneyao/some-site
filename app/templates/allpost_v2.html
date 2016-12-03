@@ -6,8 +6,8 @@
             <a href="/p_v2/{{ url[:-3] }}">{{ name }}</a>
             <div class="tags">
                 {% for tag in tags %}
-                <span>
-                    {{ tag }}
+                <span class="tag{{ tag[-1] }}">
+                    {{ tag[:-1] }}
                 </span>
                 {% endfor %}
             </div>

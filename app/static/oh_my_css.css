@@ -41,6 +41,40 @@ body{
 }
 
 
+/*标签*/
+.tags{
+    display: inline-block;
+}
+
+.tags span{
+    color: whitesmoke;
+    border-radius: 7%;
+}
+
+.tag1{
+    background: dodgerblue;
+}
+
+.tag2{
+    background: #fec418;
+}
+
+.tag3{
+    background: #ef6155;
+}
+
+.tag4{
+    background: #419641;
+}
+
+.tag5{
+    background: #843534;
+}
+
+.tag6{
+    background: #666699;
+}
+
 
 
 /*代码高亮--*/
