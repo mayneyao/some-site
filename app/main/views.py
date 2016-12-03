@@ -24,8 +24,9 @@ def post_by_summary():
     index = POST_PATH+"SUMMARY.md"
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
-        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)",text)
-    return render_template("allpost_v2.html",posts=i)
+        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)#([\w,]+)#",text)
+        posts = [(name,url,tags.split(",")) for name,url,tags in i]
+    return render_template("allpost_v2.html",posts=posts)
 
 
 @main.route("/book_hook",methods=['POST'])
