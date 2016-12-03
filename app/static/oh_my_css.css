@@ -49,6 +49,8 @@ body{
 .tags span{
     color: whitesmoke;
     border-radius: 7%;
+    padding: 2px;
+    margin-right: 5px;
 }
 
 .tag1{

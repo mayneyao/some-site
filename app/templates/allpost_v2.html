@@ -7,7 +7,7 @@
             <div class="tags">
                 {% for tag in tags %}
                 <span class="tag{{ tag[-1] }}">
-                    {{ tag[:-1] }}
+                    <a href="/tags/{{ tag[:-1] }}">{{ tag[:-1] }}</a>
                 </span>
                 {% endfor %}
             </div>
