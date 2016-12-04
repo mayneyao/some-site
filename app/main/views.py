@@ -40,7 +40,7 @@ def get_tags():
     index = POST_PATH+"SUMMARY.md"
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
-        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*",text)
+        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)\-]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*",text)
         all_tags = []
         for *_asd,tags in i:
             tags = tags[1:-1].split(",")
@@ -63,7 +63,7 @@ def tags(tag):
     index = POST_PATH+"SUMMARY.md"
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
-        posts = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*",text)
+        posts = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)\-]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*",text)
         i = [ post for post in posts if tag in post[2]]
         posts=[]
         for name,url,tags in i:
@@ -93,7 +93,7 @@ def post_by_summary():
     index = POST_PATH+"SUMMARY.md"
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
-        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*",text)
+        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)\-]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*",text)
         posts=[]
         for name,url,tags in i:
             gitlog = os.popen("cd /root/blog ; git log {0}".format(url)).read()
