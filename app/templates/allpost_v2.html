@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {#{% import "pagination.html" as macros %}#}
 {% block body %}
-    {% for name,url,tags in posts %}
+    {% for name,url,tags,p_time in posts %}
         <div class="post">
             <a href="/p_v2/{{ url[:-3] }}">{{ name }}</a>
             <div class="tags">
@@ -11,6 +11,7 @@
                 </span>
                 {% endfor %}
             </div>
+            <div class="datetime">{{ moment(p_time).fromNow() }}</div>
 {#            <div class="datetime">{{ moment(post.subtime).fromNow() }}</div>#}
             <div class="post_less">
                 <p>

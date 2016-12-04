@@ -24,12 +24,13 @@ def post_by_summary():
     index = POST_PATH+"SUMMARY.md"
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
-        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*",text)
+        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*(@[\d:年月日-]+@)*",text)
         posts=[]
-        for name,url,tags in i:
+        for name,url,tags,p_time in i:
             tags = tags[1:-1].split(",")
             tags = [tag+str(hash(tag)%6+1) for tag in tags]
-            posts.append((name,url,tags))
+            p_time = p_time[1:-1]
+            posts.append((name,url,tags,p_time))
         #posts = [(name,url,tags[1:-1].split(",")) for name,url,tags in i]
     return render_template("allpost_v2.html",posts=posts)
 
