@@ -11,6 +11,31 @@ import json,os,re
 
 PER_PAGE=20
 
+
+
+def time_format(unformat_time):
+    m_dict={
+        "Jan":"01",
+        "Feb":"02",
+        "Mar":"03",
+        "Apr":"04",
+        "May":"05",
+        "Jun":"06",
+        "Jul":"07",
+        "Aug":"08",
+        "Sep":"09",
+        "Oct":"10",
+        "Nov":"11",
+        "Dec":"12"
+    }
+    t = unformat_time.split("   ")[1]
+    time = t.split(" ")
+    m = m_dict[time[1]]
+    d = time[2]
+    y = time[4]
+    format_time = "{0}-{1}-{2}".format(y,m,d)
+    return  format_time
+
 @main.route("/tags")
 def tags_cloud():
     index = POST_PATH+"SUMMARY.md"
@@ -49,8 +74,11 @@ def post_v2(name):
     file  = POST_PATH+name+".md"
     with open(file,'r',encoding='utf-8') as f:
         content = md.convert(f.read())
-    return render_template("p_v2.html",content=content,title=name)
-
+    gitlog = os.popen("cd /root/blog ; git log {0}.md".format(name)).read()
+    x = re.findall("Date:([\w\d :+]+)\+",gitlog)
+    sub_time = time_format(x[-1])
+    up_time = time_format(x[0])
+    return render_template("p_v2.html",content=content,title=name,sub_time=sub_time,up_time=up_time)
 
 @main.route("/")
 def post_by_summary():
