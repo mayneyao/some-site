@@ -87,7 +87,7 @@ def post_by_summary():
     index = POST_PATH+"SUMMARY.md"
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
-        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*(@[\d:年月日-]+@)*",text)
+        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*",text)
         posts=[]
         for name,url,tags in i:
             gitlog = os.popen("cd /root/blog ; git log {0}".format(url)).read()
