@@ -26,6 +26,7 @@ def tags_cloud():
         for i in all_tags:
             ctn[i] += 1
         tags = dict(ctn)
+        del tags[""]
     return render_template("tags.html",tags=tags)
 
 @main.route("/tags/<tag>")
