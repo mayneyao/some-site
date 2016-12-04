@@ -69,8 +69,10 @@ def tags(tag):
         for name,url,tags in i:
             tags = tags[1:-1].split(",")
             tags = [tag+str(hash(tag)%6+1) for tag in tags]
-            p_time = p_time[1:-1]
-            posts.append((name,url,tags))
+            gitlog = os.popen("cd /root/blog ; git log {0}".format(url)).read()
+            x = re.findall("Date:([\w\d :+]+)\+",gitlog)
+            sub_time = time_format(x[-1])
+            posts.append((name,url,tags,sub_time))
     return render_template("posts_by_tag.html",posts=posts[::-1])
 
 @main.route("/p_v2/<name>")
