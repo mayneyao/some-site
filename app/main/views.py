@@ -63,15 +63,15 @@ def tags(tag):
     index = POST_PATH+"SUMMARY.md"
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
-        posts = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*(@[\d:年月日]+@)*",text)
+        posts = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*",text)
         i = [ post for post in posts if tag in post[2]]
         posts=[]
-        for name,url,tags,p_time in i:
+        for name,url,tags in i:
             tags = tags[1:-1].split(",")
             tags = [tag+str(hash(tag)%6+1) for tag in tags]
             p_time = p_time[1:-1]
-            posts.append((name,url,tags,p_time))
-    return render_template("allpost_v2.html",posts=posts[::-1])
+            posts.append((name,url,tags))
+    return render_template("posts_by_tag.html",posts=posts[::-1])
 
 @main.route("/p_v2/<name>")
 def post_v2(name):
