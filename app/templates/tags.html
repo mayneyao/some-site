@@ -3,7 +3,7 @@
 {% block body %}
     <ul class="tags_ul">
         {% for tag,size in tags.items() %}
-            <li class="tags_li" style="font-size: {{ 8*size }}px"><span class="tag{{ size%6 + 1 }}"><a href="/tags/{{ tag }}">{{ tag }}</a></span></li>
+            <li class="tags_li" style="font-size: {{ 8*size }}px;margin:{{ 8*size }}px "><span class="tag{{ size%6 + 1 }}"><a href="/tags/{{ tag }}">{{ tag }}</a></span></li>
         {% endfor %}
     </ul>
 
