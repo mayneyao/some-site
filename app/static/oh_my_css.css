@@ -347,7 +347,13 @@ article{
     margin-top: 30px;
 }
 
+#wrap{
+    max-width: 1000px;
+    position: relative;
+}
 #main_v2{
+    position: absolute;
+    left: 0;
     max-width: 800px;
     background: #ffffff;
     margin: 0 auto;
@@ -359,7 +365,8 @@ article{
     background: #ffffff;
     margin: 0 auto;
     margin-top: 30px;
-    float: right;
+    position: absolute;
+    right: 0;
 }
 
 /*显示全部文章页，样式*/

@@ -27,15 +27,16 @@
 </div>
 
 
-<div id="main_v2" class="box">
-    {% block body %}
-    {% endblock %}
+<div id="wrap">
+    <div id="main_v2" class="box">
+        {% block body %}
+        {% endblock %}
+    </div>
+    <div id="side_v2">
+        {% block side%}
+        {% endblock %}
+    </div>
 </div>
-<div id="side_v2">
-    {% block side%}
-    {% endblock %}
-</div>
-
 <div id="footer">
     <div class="footinfo">
         <p>Copyright © 2016 Mayne | powered by <a href="https://github.com/MayneYao/gine">gine</a> </p>
