@@ -10,20 +10,14 @@ import json,os,re
 
 PER_PAGE=20
 
-@main.route("/tags")
-def tags():
+@main.route("/tags/<tag>")
+def tags(tag):
     index = POST_PATH+"SUMMARY.md"
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
-        tags=  re.findall("(#[\w,]+#)+",text)
-        all_tags=[]
-        for tag in tags:
-            tag = tag[1:-1].split(",")
-            for t in tag:
-                all_tags.append(t)
-        tags = ",".join(set(all_tags))
-
-    return tags
+        posts = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*(@[\d:年月日]+@)*",text)
+        posts = [ post for post in posts if tag in post[2]]
+    return render_template("allpost_v2.html",posts=posts)
 
 @main.route("/p_v2/<name>")
 def post_v2(name):
