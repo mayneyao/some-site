@@ -5,13 +5,11 @@
         <div class="post">
             <a href="/p_v2/{{ url[:-3] }}">{{ name }}</a>
             <div class="tags">
-            {% if len(tags)>0 %}
                 {% for tag in tags %}
                 <span class="tag{{ tag[-1] }}">
                     <a href="/tags/{{ tag[:-1] }}">{{ tag[:-1] }}</a>
                 </span>
                 {% endfor %}
-            {% endif %}
             </div>
 {#            <div class="datetime">{{ moment(post.subtime).fromNow() }}</div>#}
             <div class="post_less">
