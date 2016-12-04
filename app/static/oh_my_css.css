@@ -353,7 +353,7 @@ article{
     margin: 0 auto;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (min-width: 900px){
   #main_v2{
     max-width: 900px;
     float: left;
