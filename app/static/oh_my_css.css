@@ -352,6 +352,24 @@ article{
     max-width: 1000px;
     margin: 0 auto;
 }
+
+@media screen and (max-width: 800px){
+  #main_v2{
+    max-width: 900px;
+    float: left;
+    left: 0;
+    background: #ffffff;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+    #side_v2{
+    max-width: 900px;
+    background: #ffffff;
+    margin-top: 30px;
+    float: left;
+}
+}
+
 #main_v2{
     width: 690px;
     float: left;
