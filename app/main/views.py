@@ -50,7 +50,8 @@ def get_tags():
         for i in all_tags:
             ctn[i] += 1
         a_tags = dict(ctn)
-        del a_tags[""]
+        if "" in all_tags:
+            del a_tags[""]
     return a_tags
 
 @main.route("/tags")
