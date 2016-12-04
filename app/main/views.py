@@ -25,7 +25,7 @@ def tags(tag):
             tags = [tag+str(hash(tag)%6+1) for tag in tags]
             p_time = p_time[1:-1]
             posts.append((name,url,tags,p_time))
-    return render_template("allpost_v2.html",posts=posts)
+    return render_template("allpost_v2.html",posts=posts[::-1])
 
 @main.route("/p_v2/<name>")
 def post_v2(name):
@@ -48,7 +48,7 @@ def post_by_summary():
             p_time = p_time[1:-1]
             posts.append((name,url,tags,p_time))
         #posts = [(name,url,tags[1:-1].split(",")) for name,url,tags in i]
-    return render_template("allpost_v2.html",posts=posts)
+    return render_template("allpost_v2.html",posts=posts[::-1])
 
 
 @main.route("/book_hook",methods=['POST'])
