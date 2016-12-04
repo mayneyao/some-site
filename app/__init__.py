@@ -1,9 +1,9 @@
 from flask import Flask
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.moment import Moment
-from flask.ext.bootstrap import Bootstrap
-from flask.ext.login import LoginManager
-from flask.ext.pagedown import PageDown
+from flask_sqlalchemy import SQLAlchemy
+from flask_moment import Moment
+from flask_bootstrap import Bootstrap
+from flask_login import LoginManager
+from flask_pagedown import PageDown
 import markdown
 from .config import sql_user,sql_pwd,sql_ip,sql_name,SECRET_KEY
 

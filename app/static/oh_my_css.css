@@ -44,6 +44,7 @@ body{
 
 .tags_ul {
     list-style: none;
+    padding: 50px;
 }
 
 .tags_li {
