@@ -4,7 +4,10 @@
 {% endblock %}
 {% block body %}
     <div id="post">
-        <span>发表时间:{{ sub_time }}</span> <span>更新时间:{{ up_time }}</span>
+        <span>发表时间:{{ sub_time }}</span>
+        {% if up_time %}
+            <span>更新时间:{{ up_time }}</span>
+        {% endif %}
         <article id="">
             {{ content|safe }}
         </article>

@@ -78,6 +78,8 @@ def post_v2(name):
     x = re.findall("Date:([\w\d :+]+)\+",gitlog)
     sub_time = time_format(x[-1])
     up_time = time_format(x[0])
+    if sub_time==up_time:
+        up_time = False
     return render_template("p_v2.html",content=content,title=name,sub_time=sub_time,up_time=up_time)
 
 @main.route("/")
