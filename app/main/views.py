@@ -36,8 +36,7 @@ def time_format(unformat_time):
     format_time = "{0}-{1}-{2}".format(y,m,d)
     return  format_time
 
-@main.route("/tags")
-def tags_cloud():
+def get_tags():
     index = POST_PATH+"SUMMARY.md"
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
@@ -50,8 +49,13 @@ def tags_cloud():
         ctn  =Counter()
         for i in all_tags:
             ctn[i] += 1
-        tags = dict(ctn)
-        del tags[""]
+        a_tags = dict(ctn)
+        del a_tags[""]
+    return a_tags
+
+@main.route("/tags")
+def tags_cloud():
+    tags = get_tags()
     return render_template("tags.html",tags=tags)
 
 @main.route("/tags/<tag>")
@@ -96,7 +100,8 @@ def post_by_summary():
             tags = tags[1:-1].split(",")
             tags = [tag+str(hash(tag)%6+1) for tag in tags]
             posts.append((name,url,tags,sub_time))
-    return render_template("allpost_v2.html",posts=posts[::-1])
+    all_tags = get_tags()
+    return render_template("allpost_v2.html",posts=posts[::-1],tags=all_tags)
 
 
 @main.route("/book_hook",methods=['POST'])
