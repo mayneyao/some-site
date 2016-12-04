@@ -41,6 +41,24 @@ body{
 }
 
 
+
+.tags_ul {
+    list-style: none;
+}
+
+.tags_li {
+    display: inline-block;
+}
+
+
+.tags_li span{
+    border-radius: 7%;
+    margin-left: 5px;
+    padding: 5px;
+}
+.tags_li a{
+    color: whitesmoke;
+}
 /*标签*/
 .tags{
     display: inline-block;
