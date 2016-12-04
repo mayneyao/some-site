@@ -92,7 +92,6 @@ def post_by_summary():
         for name,url,tags in i:
             gitlog = os.popen("cd /root/blog ; git log {0}".format(url)).read()
             x = re.findall("Date:([\w\d :+]+)\+",gitlog)
-            print(x)
             sub_time = time_format(x[-1])
             tags = tags[1:-1].split(",")
             tags = [tag+str(hash(tag)%6+1) for tag in tags]
