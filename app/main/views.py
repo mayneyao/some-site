@@ -83,7 +83,7 @@ def manage():
 def hook():
     #request.get_data()
     os.system("cd /root/gine ; git pull ")
-    os.system(" pkill gunicorn && gunicorn manage:app")
+    os.popen(" pkill gunicorn && gunicorn manage:app")
     return "ok"
 
 @main.route("/od")
