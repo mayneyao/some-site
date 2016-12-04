@@ -17,9 +17,13 @@ def tags():
         text = f.read()
         tags=  re.findall("(#[\w,]+#)+",text)
         all_tags=[]
-        for tag in tags[1:-1].split(","):
-            all_tags.append(tag)
-    return all_tags
+        for tag in tags:
+            tag = tag[1:-1].split(",")
+            for t in tag:
+                all_tags.append(t)
+        tags = ",".join(set(all_tags))
+
+    return tags
 
 @main.route("/p_v2/<name>")
 def post_v2(name):
