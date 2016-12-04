@@ -2,7 +2,7 @@
 {#{% import "pagination.html" as macros %}#}
 {% block body %}
     <ul>
-        {% for tag,size in tags %}
+        {% for tag,size in tags.items() %}
             <li><span style="font-size: {{ size }}">{{ tag }}</span></li>
         {% endfor %}
     </ul>
