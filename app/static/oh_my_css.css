@@ -40,7 +40,9 @@ body{
     background: #e2e2e2;
 }
 
-
+article h1{
+    display: none;
+}
 
 .tags_ul {
     list-style: none;
