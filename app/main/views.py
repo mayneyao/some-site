@@ -90,11 +90,12 @@ def post_by_summary():
         i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*(@[\d:年月日-]+@)*",text)
         posts=[]
         for name,url,tags,p_time in i:
+            gitlog = os.popen("cd /root/blog ; git log {0}.md".format(url)).read()
+            x = re.findall("Date:([\w\d :+]+)\+",gitlog)
+            sub_time = time_format(x[-1])
             tags = tags[1:-1].split(",")
             tags = [tag+str(hash(tag)%6+1) for tag in tags]
-            p_time = p_time[1:-1]
-            posts.append((name,url,tags,p_time))
-        #posts = [(name,url,tags[1:-1].split(",")) for name,url,tags in i]
+            posts.append((name,url,tags,sub_time))
     return render_template("allpost_v2.html",posts=posts[::-1])
 
 
