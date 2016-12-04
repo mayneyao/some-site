@@ -10,10 +10,20 @@ import json,os,re
 
 PER_PAGE=20
 
+@main.route("/tags")
+def tags():
+    index = POST_PATH+"SUMMARY.md"
+    with open(index,'r',encoding='utf-8') as f:
+        text = f.read()
+        tags=  re.findall("(#[\w,]+#)+",text)
+        all_tags=[]
+        for tag in tags[1:-1].split(","):
+            all_tags.append(tag)
+    return all_tags
 
 @main.route("/p_v2/<name>")
 def post_v2(name):
-    file  = "/root/blog/"+name+".md"
+    file  = POST_PATH+name+".md"
     with open(file,'r',encoding='utf-8') as f:
         content = md.convert(f.read())
     return render_template("p_v2.html",content=content,title=name)
