@@ -6,29 +6,42 @@ from .forms import PostForm,LoginForm
 from flask.ext.login import login_user,login_required,logout_user
 from .util import TPB
 from ..config import POST_PATH
+from collections import Counter
 import json,os,re
 
 PER_PAGE=20
 
-
+@main.route("/tags")
+def tags_cloud():
+    index = POST_PATH+"SUMMARY.md"
+    with open(index,'r',encoding='utf-8') as f:
+        text = f.read()
+        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*",text)
+        all_tags = []
+        for *_asd,tags in i:
+            tags = tags[1:-1].split(",")
+            for tag in tags:
+                all_tags.append(tag)
+        ctn  =Counter()
+        for i in all_tags:
+            ctn[i] += 1
+        tags = dict(ctn)
+    return render_template("tags.html",tags=tags)
 
 @main.route("/tags/<tag>")
 def tags(tag):
-    if tag==None:
-        return "no tags"
-    else:
-        index = POST_PATH+"SUMMARY.md"
-        with open(index,'r',encoding='utf-8') as f:
-            text = f.read()
-            posts = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*(@[\d:年月日]+@)*",text)
-            i = [ post for post in posts if tag in post[2]]
-            posts=[]
-            for name,url,tags,p_time in i:
-                tags = tags[1:-1].split(",")
-                tags = [tag+str(hash(tag)%6+1) for tag in tags]
-                p_time = p_time[1:-1]
-                posts.append((name,url,tags,p_time))
-        return render_template("allpost_v2.html",posts=posts[::-1])
+    index = POST_PATH+"SUMMARY.md"
+    with open(index,'r',encoding='utf-8') as f:
+        text = f.read()
+        posts = re.findall("\*\s{1}\[([\u4E00-\u9FA5\w \&\/\、\(\)]+)\]\(([\w\d_ \.]+)\)(#[\w,]+#)*(@[\d:年月日]+@)*",text)
+        i = [ post for post in posts if tag in post[2]]
+        posts=[]
+        for name,url,tags,p_time in i:
+            tags = tags[1:-1].split(",")
+            tags = [tag+str(hash(tag)%6+1) for tag in tags]
+            p_time = p_time[1:-1]
+            posts.append((name,url,tags,p_time))
+    return render_template("allpost_v2.html",posts=posts[::-1])
 
 @main.route("/p_v2/<name>")
 def post_v2(name):
