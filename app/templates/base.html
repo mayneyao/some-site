@@ -21,7 +21,7 @@
             <li><a href="/tags">标签</a></li>
             <li><a href="/meiju">追剧</a></li>
             <li><a href="http://mayneyao.github.io/resume/">关于</a></li>
-            <li><a id="menu-toggle" href="#">菜单</a></li>
+            <li><a id="menu-toggle" href="">菜单</a></li>
         </ul>
     </div>
 </div>
@@ -52,6 +52,9 @@
         {% if post %}
         <li><a href="/edit/{{ post.id }}">修改文章</a></li>
         {% else %}
+        {% endif %}
+        {% if title %}
+        <li><a href="https://www.gitbook.com/book/mayneyao/blog/edit#/edit/master/{{ title }}.md">编辑文章</a></li>
         {% endif %}
         <li><a href="/manage">后台管理</a></li>
     </ul>
