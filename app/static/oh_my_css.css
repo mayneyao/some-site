@@ -48,8 +48,8 @@ body{
 
 .tags span{
     border-radius: 7%;
-    padding: 2px;
-    margin-right: 5px;
+    padding: 3px;
+    margin-left: 5px;
 }
 
 .tags span a{
