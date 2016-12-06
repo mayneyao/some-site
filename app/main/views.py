@@ -1,6 +1,6 @@
 from .. import md
 from . import main
-from flask import render_template,request
+from flask import render_template,request,flash
 from .util import TPB
 from ..config import POST_PATH
 from collections import Counter
