@@ -2,7 +2,7 @@ import requests
 import re
 from bs4 import BeautifulSoup as bs
 from bs4 import element
-from . views import  POST_PATH
+from .. config import POST_PATH
 from collections import Counter
 header = {
     'user-agent':'Mozilla/5.0 (Windows; U; Windows NT 5.1; it; rv:1.8.1.11) Gecko/20071127 Firefox/2.0.0.11'
