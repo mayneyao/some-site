@@ -2,8 +2,9 @@ from .. import md
 from . import main
 from flask import render_template,request,flash
 from .util import TPB,get_tags,time_format
-from ..config import POST_PATH
 import os,re
+
+POST_PATH = "/root/blog"
 
 @main.route("/tags")
 def tags_cloud():
