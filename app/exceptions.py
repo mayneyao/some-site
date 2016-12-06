@@ -1,3 +1,0 @@
-class ValidationError(ValueError):
-    pass
-
