@@ -91,13 +91,11 @@ def get_archive():
             sub_time = time_format(x[-1])
             y,m,d = sub_time.split("-")
             y_m = y+"-"+m
-            print(y_m)
             archive.append(y_m)
         ctn = Counter()
         for i in archive:
             ctn[i] += 1
         archive  =dict(ctn)
-        print(archive)
     return archive
 if __name__=="__main__":
     res,flag = TPB("westworld","S01E02").get_magnet_info()
