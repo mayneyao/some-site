@@ -68,7 +68,7 @@ def post_v2(name):
                            text)
         i = [post for post in posts if name in post[0]]
         for name, url, tags in i:
-            p_tags = tags.split(",")
+            p_tags = tags[1:-1].split(",")
     post = (name,content,sub_time,up_time,p_tags)
     return render_template("p_v3.html",post=post,tags = get_tags(),archive=get_archive())
 
