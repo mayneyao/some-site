@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/oh_my_css.css">
     <title>test</title>
 </head>
 <body>
@@ -14,15 +15,31 @@
         <ul>
             <li><a href="/tags">标签</a></li>
             <li><a href="/meiju">追剧</a></li>
-{#            <li><a href="http://mayneyao.github.io/resume/">关于</a></li>#}
             <li><a id="menu-toggle" href="#">菜单</a></li>
         </ul>
     </nav>
 </div>
 
 <div class="container" role="main">
-    <div class="col-md-9" id="main">
-        dasdas
+    <div class="col-md-9" role="posts">
+        {% for name,url,tags,subtime in posts %}
+            <div class="post">
+                <a href="/p_v2/{{ url[:-3] }}">{{ name }}</a>
+                <div class="tags">
+                    {% for tag in tags %}
+                    <span class="tag{{ tag[-1] }}">
+                        <a href="/tags/{{ tag[:-1] }}">{{ tag[:-1] }}</a>
+                    </span>
+                    {% endfor %}
+                </div>
+                <div class="datetime">{{ subtime }}</div>
+                <div class="post_less">
+                    <p>
+    {#                {{ post.content |safe| truncate(200, True)}}#}
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
     </div>
     <div class="col-md-3">
         <div class="list-group ">

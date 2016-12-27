@@ -90,5 +90,17 @@ def meiju():
         return render_template("meiju_kong.html")
 @main.route("/test")
 def testnew():
+    index = POST_PATH+"info.md"
+    with open(index,'r',encoding='utf-8') as f:
+        text = f.read()
+        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\-\w \&\/\、\(\)]+)\]\(([\w\d_ \.\-]+)\)(#[\w,]+#)*",text)
+        posts=[]
+        for name,url,tags in i:
+            gitlog = os.popen("cd {0}; git log {1}".format(POST_PATH,url)).read()
+            x = re.findall("Date:([\w\d :+]+)\+",gitlog)
+            sub_time = time_format(x[-1])
+            tags = tags[1:-1].split(",")
+            tags = [tag+str(hash(tag)%6+1) for tag in tags]
+            posts.append((name,url,tags,sub_time))
     tags = get_tags()
-    return render_template("itest.html", tags=tags)
+    return render_template("itest.html", tags=tags,posts=posts[::-1])
