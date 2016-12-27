@@ -12,7 +12,7 @@ def tags(tag):
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
         posts = re.findall("\*\s{1}\[([\u4E00-\u9FA5\-\w \&\/\、\(\)]+)\]\(([\w\d_ \.\-]+)\)(#[\w\u4E00-\u9FA5\s,]+#)*",text)
-        i = [ post for post in posts if tag in post[2]]
+        i = [ post for post in posts if tag == post[2]]
         posts=[]
         for name,url,tags in i:
             #得到tags
