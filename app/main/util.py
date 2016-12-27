@@ -91,6 +91,7 @@ def get_archive():
             sub_time = time_format(x[-1])
             y,m,d = sub_time.split("-")
             y_m = y+"-"+m
+            print(y_m)
             archive.append(y_m)
         ctn = Counter()
         for i in archive:
