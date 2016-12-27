@@ -25,20 +25,20 @@
 <div class="container" role="main">
     <div class="col-md-9" role="posts">
         {% for name,url,tags,subtime in posts %}
-            <div class="post">
-                <h3><a href="/p_v2/{{ url[:-3] }}">{{ name }}</a></h3>
-                <span class="label">
-                    {% for tag in tags %}
-                        <span class="lable"><a href="/tags/{{ tag[:-1] }}">{{ tag[:-1] }}</a></span>
-                    {% endfor %}
-                </span>
-                <span class="subtime"><span class="glyphicon glyphicon-time"></span>{{ subtime }}</span>
-                <div class="post_less">
-                    <p>
-    {#                {{ post.content |safe| truncate(200, True)}}#}
-                    </p>
-                </div>
-            </div>
+            <div class="panel panel-default">
+			    <div class="panel-body">
+			        <h3 class="post-title"><a href="/p_v2/{{ url[:-3] }}">{{ name }}</a></h3>
+			        <div class="post-meta">
+			        	<span class="post-time"><span class="glyphicon glyphicon-time"></span>{{ subtime }}</span>
+			        	<span class="post-tags">
+                            {% for tag in tags %}
+                                <span class="lable"><a href="/tags/{{ tag[:-1] }}">{{ tag[:-1] }}</a></span>
+                            {% endfor %}
+                        </span>
+			        </div>
+			        <div class="post-content"></div>
+			    </div>
+		    </div>
         {% endfor %}
     </div>
     <div class="col-md-3">
