@@ -56,7 +56,7 @@
           <div class="panel-heading">标签</div>
             <div class="list-group">
                 {% for tag,size in tags.items() %}
-                    <a class="list-group-item" href="/tags/{{ tag }}" ><span class="label" style="color: #0f0f0f">{{ tag }}</span><span class="badge">{{ size }}</span></a>
+                    <a class="list-group-item" href="/tags/{{ tag }}" ><span>{{ tag }}</span><span class="badge">{{ size }}</span></a>
                 {% endfor %}
             </div>
         </div>
