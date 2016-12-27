@@ -12,7 +12,7 @@ def tags_cloud():
 
 @main.route("/tags/<tag>")
 def tags(tag):
-    index = POST_PATH+"SUMMARY.md"
+    index = POST_PATH+"info.md"
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
         posts = re.findall("\*\s{1}\[([\u4E00-\u9FA5\-\w \&\/\、\(\)]+)\]\(([\w\d_ \.\-]+)\)(#[\w,]+#)*",text)
@@ -42,7 +42,7 @@ def post_v2(name):
 
 @main.route("/")
 def post_by_summary():
-    index = POST_PATH+"SUMMARY.md"
+    index = POST_PATH+"info.md"
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
         i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\-\w \&\/\、\(\)]+)\]\(([\w\d_ \.\-]+)\)(#[\w,]+#)*",text)
