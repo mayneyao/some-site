@@ -171,14 +171,16 @@ button{
     float: right;
 }
 
-#footer .footinfo{
+.footer{
+    border-top: 1px #eee solid;
+}
+.footinfo{
     text-align: center;
     color: #666;
 }
-#footer .footinfo p{
+.footinfo p{
     padding-top: 20px;
 }
-
 
 #post {
     max-width: 1000px;
