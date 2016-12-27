@@ -1,0 +1,8 @@
+{% extends "base_v3.hmtl" %}
+{% block all %}
+<ul>
+    {% for tag,size in tags.items() %}
+        <span class="label label-info">{{ tag }}</span><span class="badge">{{ size }}</span>
+    {% endfor %}
+</ul>
+{% endblock %}

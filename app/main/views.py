@@ -88,6 +88,6 @@ def meiju():
         return render_template("meiju.html",res=res,flag=flag)
     else:
         return render_template("meiju_kong.html")
-@main.route("/testnew")
+@main.route("/test")
 def testnew():
-    return  render_template("index.html")
+    return  render_template("test.html")
