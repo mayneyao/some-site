@@ -6,7 +6,7 @@
     {% for title,content,sub_time,up_time,p_tags in post %}
         <div class="panel panel-default">
             <div class="panel-body">
-                <h2 class="post-title">{{ name }}</h2>
+                <h2 class="post-title">{{ title }}</h2>
                 <div class="post-meta">
                     <span class="post-time"><span class="glyphicon glyphicon-time"></span>{{ subtime }}</span>
                     {% if up_time %}<span>{{ up_time }}</span>{% endif %}
