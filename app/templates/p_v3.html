@@ -1,15 +1,17 @@
 {% extends "base_p.html" %}
 {% block post %}
-        <div id="post">
-        <h1>{{ title }}</h1>
-        发表时间:<span class="time">{{ sub_time }}</span>
-        {% if up_time %}
-            更新时间:<span class="time">{{ up_time }}</span>
-        {% endif %}
-        <hr>
-        <article id="article">
-            {{ content|safe }}
-        </article>
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <h1>{{ title }}</h1>
+            发表时间:<span class="time">{{ sub_time }}</span>
+            {% if up_time %}
+                更新时间:<span class="time">{{ up_time }}</span>
+            {% endif %}
+            <hr>
+            <article id="article">
+                {{ content|safe }}
+            </article>
+        </div>
     </div>
 <!-- 多说评论框 start -->
 	<div class="ds-thread" data-thread-key="{{ title }}" data-title="{{ title }}" data-url="/p/{{ title }}"></div>
