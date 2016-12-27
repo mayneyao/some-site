@@ -6,9 +6,10 @@ from ..config import POST_PATH
 import os,re
 
 
-@main.route("/archive/<year>/<month>")
-def archive(year,month):
+@main.route("/archive/time")
+def archive(time):
     index = POST_PATH+"info.md"
+    year,month = time.split("-")
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
         posts = re.findall("\*\s{1}\[([\u4E00-\u9FA5\-\w \&\/\、\(\)]+)\]\(([\w\d_ \.\-]+)\)(#[\w\u4E00-\u9FA5\s,]+#)*",text)
