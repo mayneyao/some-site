@@ -1,0 +1,30 @@
+{% extends "base_p" %}
+{% block post %}
+        <div id="post">
+        <h1>{{ title }}</h1>
+        发表时间:<span class="time">{{ sub_time }}</span>
+        {% if up_time %}
+            更新时间:<span class="time">{{ up_time }}</span>
+        {% endif %}
+        <hr>
+        <article id="article">
+            {{ content|safe }}
+        </article>
+    </div>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="{{ title }}" data-title="{{ title }}" data-url="/p/{{ title }}"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gine"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+{% endblock %}

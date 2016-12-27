@@ -41,7 +41,7 @@ def post_v2(name):
     up_time = time_format(x[0])
     if sub_time==up_time:
         up_time = False
-    return render_template("p_v2.html",content=content,title=name,sub_time=sub_time,up_time=up_time)
+    return render_template("p_v3.html",content=content,title=name,sub_time=sub_time,up_time=up_time)
 
 @main.route("/")
 def post_by_summary():
@@ -63,7 +63,7 @@ def post_by_summary():
                 summary = md.convert(summary)
             posts.append((name,url,tags,sub_time,summary))
     all_tags = get_tags()
-    return render_template("allpost_v2.html",posts=posts[::-1],tags=all_tags)
+    return render_template("index.html",posts=posts[::-1],tags=all_tags)
 
 
 @main.route("/book_hook",methods=['POST'])

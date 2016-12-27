@@ -33,7 +33,8 @@
 </div>
 
 <div class="container" role="main">
-    {% include "i_posts.html" %}
+    {% block post %}
+    {% endblock %}
     <div class="col-md-3">
         <div class="panel panel-primary">
           <div class="panel-heading">标签</div>
