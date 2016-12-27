@@ -3,7 +3,7 @@
     {{ title }}
 {% endblock %}
 {% block post %}
-    {% for title,content,sub_time,up_time,p_tags in post %}
+    {%  title,content,sub_time,up_time,p_tags = post %}
         <div class="panel panel-default">
             <div class="panel-body">
                 <h2 class="post-title">{{ title }}</h2>
@@ -21,8 +21,6 @@
                 </div>
             </div>
         </div>
-    {% endfor %}
-
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"gine"};
