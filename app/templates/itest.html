@@ -43,7 +43,7 @@
     <div class="col-md-3">
         <div class="panel panel-info">
           <div class="panel-heading">标签</div>
-            <div class="panel-body list-group">
+            <div class="list-group">
                 {% for tag,size in tags.items() %}
                     <a class="list-group-item" href="/tags/{{ tag }}"><span class="label">{{ tag }}</span><span class="badge">{{ size }}</span></a>
                 {% endfor %}
