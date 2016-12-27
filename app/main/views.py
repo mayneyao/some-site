@@ -8,7 +8,7 @@ import os,re
 @main.route("/tags")
 def tags_cloud():
     tags = get_tags()
-    return render_template("tags_v3.html",tags=tags)
+    return render_template("index.html",tags=tags)
 
 @main.route("/tags/<tag>")
 def tags(tag):
