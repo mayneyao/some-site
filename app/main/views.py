@@ -20,7 +20,7 @@ def archive(time):
             x = re.findall("Date:([\w\d :+]+)\+",gitlog)
             sub_time = time_format(x[-1])
             y, m, d = sub_time.split("-")
-            if year != y and month != m:
+            if year == y and month == m:
                 file = POST_PATH + url
                 with open(file,"r") as f:
                     summary = f.read().split("<!-- more -->")[0]
