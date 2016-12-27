@@ -41,18 +41,21 @@
         {% endfor %}
     </div>
     <div class="col-md-3">
-        <div class="panel panel-default">
-          <div class="panel-heading">Panel heading without title</div>
-            <div class="panel-body">
-                <div class="list-group ">
-                    {% for tag,size in tags.items() %}
-                        <a class="list-group-item" href="/tags/{{ tag }}"><span class="label">{{ tag }}</span><span class="badge">{{ size }}</span></a>
-                    {% endfor %}
-                </div>
+        <div class="panel panel-info">
+          <div class="panel-heading">标签</div>
+            <div class="panel-body list-group">
+                {% for tag,size in tags.items() %}
+                    <a class="list-group-item" href="/tags/{{ tag }}"><span class="label">{{ tag }}</span><span class="badge">{{ size }}</span></a>
+                {% endfor %}
             </div>
         </div>
 
-
+        <div class="panel panel-success">
+          <div class="panel-heading">归档</div>
+            <div class="panel-body list-group">
+               暂无
+            </div>
+        </div>
     </div>
 </div>
 
