@@ -27,7 +27,7 @@ def tags(tag):
                 summary = f.read().split("<!-- more -->")[0]
                 summary = md.convert(summary)
             posts.append((name,url,tags,sub_time,summary))
-    return render_template("posts_by_tag.html",posts=posts[::-1])
+    return render_template("posts_by_tag.html",posts=posts[::-1],tags=get_tags())
 
 @main.route("/p_v2/<name>")
 def post_v2(name):
