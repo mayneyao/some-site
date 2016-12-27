@@ -59,7 +59,7 @@ def time_format(unformat_time):
     return  format_time
 
 def get_tags():
-    index = POST_PATH+"SUMMARY.md"
+    index = POST_PATH+"info.md"
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
         i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\-\w \&\/\、\(\)]+)\]\(([\w\d_ \.\-]+)\)(#[\w,]+#)*",text)
