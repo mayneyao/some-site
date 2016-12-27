@@ -1,37 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/static/on_my_css_v2.css">
-    <title>test</title>
-    <style>
-        .panel{
-            border-radius: 2px;
-            border: 0;
-            box-shadow: 0 1px 6px 0 rgba(0,0,0,.12), 0 1px 6px 0 rgba(0,0,0,.12);
-        }
-        .list-group-item {
-            color: #0f0f0f;
-        }
-    </style>
-</head>
-<body>
-<div id="header" >
-    <nav class="navbar navbar-default col-md-12" role="navigation">
-        <div class="container">
-        <span id="logo"><a href="/"><img src="/static/img/logo.png"  width="120px" height="auto"></a></span>
-        <ul>
-            <li><a href="/meiju">追剧</a></li>
-            <li><a id="menu-toggle" href="#">菜单</a></li>
-        </ul>
-        </div>
-    </nav>
-</div>
+{% extends "base.html" %}
 
+{% block main %}
 <div class="container" role="main">
     <div class="col-md-9">
         {% block post %}
@@ -54,15 +23,5 @@
             </div>
         </div>
     </div>
-
 </div>
-
-<div class="footer col-md-12" role="footer">
-    <div class="footinfo">
-        <p>Copyright © 2016 Mayne | powered by <a href="https://github.com/MayneYao/gine">gine</a> </p>
-        <span><a href="https://github.com/MayneYao"><img src="/static/img/github.png" alt=""></a></span>
-    </div>
-</div>
-<script src="/static/oh_my_js.js"></script>
-</body>
-</html>
+{% endblock %}
