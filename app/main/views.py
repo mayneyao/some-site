@@ -6,7 +6,7 @@ from ..config import POST_PATH
 import os,re
 
 
-@main.route("/archive/time")
+@main.route("/archive/<time>")
 def archive(time):
     index = POST_PATH+"info.md"
     year,month = time.split("-")
@@ -26,7 +26,7 @@ def archive(time):
                     summary = f.read().split("<!-- more -->")[0]
                     summary = md.convert(summary)
                 posts.append((name,url,tags,sub_time,summary))
-    return render_template("posts_by_tag.html", posts=posts[::-1], tags=get_tags(),archive=get_archive())
+    return render_template("posts_by_archive.html", posts=posts[::-1], tags=get_tags(),archive=get_archive())
 @main.route("/tags/<tag>")
 def tags(tag):
     index = POST_PATH+"info.md"
