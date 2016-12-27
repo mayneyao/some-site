@@ -61,7 +61,6 @@ def post_by_summary():
             with open(file,"r") as f:
                 summary = f.read().split("<!-- more -->")[0]
                 summary = md.convert(summary)
-
             posts.append((name,url,tags,sub_time,summary))
     all_tags = get_tags()
     return render_template("allpost_v2.html",posts=posts[::-1],tags=all_tags)
