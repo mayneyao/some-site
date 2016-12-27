@@ -35,23 +35,6 @@
 <div class="container" role="main">
     {% block post %}
     {% endblock %}
-    <div class="col-md-3">
-        <div class="panel panel-primary">
-          <div class="panel-heading">标签</div>
-            <div class="list-group">
-                {% for tag,size in tags.items() %}
-                    <a class="list-group-item" href="/tags/{{ tag }}" ><span>{{ tag }}</span><span class="badge">{{ size }}</span></a>
-                {% endfor %}
-            </div>
-        </div>
-
-        <div class="panel panel-primary">
-          <div class="panel-heading">归档</div>
-            <div class="panel-body list-group">
-               暂无
-            </div>
-        </div>
-    </div>
 </div>
 
 <div class="footer col-md-12" role="footer">
