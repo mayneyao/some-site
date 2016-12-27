@@ -28,7 +28,7 @@
 
 <div class="container" role="main">
     <div class="col-md-9" role="posts">
-        {% for name,url,tags,subtime in posts %}
+        {% for name,url,tags,subtime,summary in posts %}
             <div class="panel panel-default">
 			    <div class="panel-body">
 			        <h3 class="post-title"><a href="/p_v2/{{ url[:-3] }}">{{ name }}</a></h3>
