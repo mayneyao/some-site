@@ -3,21 +3,20 @@
     {{ title }}
 {% endblock %}
 {% block post %}
-    {%  title,content,sub_time,up_time,p_tags = post %}
         <div class="panel panel-default">
             <div class="panel-body">
-                <h2 class="post-title">{{ title }}</h2>
+                <h2 class="post-title">{{ post[0] }}</h2>
                 <div class="post-meta">
-                    <span class="post-time"><span class="glyphicon glyphicon-time"></span>{{ subtime }}</span>
-                    {% if up_time %}<span>{{ up_time }}</span>{% endif %}
+                    <span class="post-time"><span class="glyphicon glyphicon-time"></span>{{ post[2] }}</span>
+                    {% if post[3] %}<span>{{ post[3] }}</span>{% endif %}
                     <span class="post-tags">
-                        {% for p_tag in p_tags %}
+                        {% for p_tag in post[4] %}
                             <span class="lable"><a href="/tags/{{ p_tag }}">{{ p_tag}}</a></span>
                         {% endfor %}
                     </span>
                 </div>
                 <div class="post-content">
-                    {{ content |safe}}
+                    {{ post[1] |safe}}
                 </div>
             </div>
         </div>
