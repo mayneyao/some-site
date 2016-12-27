@@ -109,6 +109,12 @@ def testnew():
             sub_time = time_format(x[-1])
             tags = tags[1:-1].split(",")
             tags = [tag+str(hash(tag)%6+1) for tag in tags]
-            posts.append((name,url,tags,sub_time))
+
+            file = POST_PATH + url
+            with open(file,"r") as f:
+                summary = f.read().split("<!-- more -->")[0]
+                summary = md.convert(summary)
+
+            posts.append((name,url,tags,sub_time,summary))
     tags = get_tags()
     return render_template("itest.html", tags=tags,posts=posts[::-1])
