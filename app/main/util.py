@@ -96,6 +96,7 @@ def get_archive():
         for i in archive:
             ctn[i] += 1
         archive  =dict(ctn)
+        print(archive)
     return archive
 if __name__=="__main__":
     res,flag = TPB("westworld","S01E02").get_magnet_info()
