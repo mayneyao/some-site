@@ -90,4 +90,5 @@ def meiju():
         return render_template("meiju_kong.html")
 @main.route("/test")
 def testnew():
-    return  render_template("test.html")
+    tags = get_tags()
+    return render_template("test.html", tags=tags)
