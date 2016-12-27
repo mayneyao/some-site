@@ -1,6 +1,6 @@
 {% extends "base_v3.html" %}
 {% block all %}
-<div class="list-group">
+<div class="list-group col-md-4">
     {% for tag,size in tags.items() %}
         <a class="list-group-item" href="/tags/{{ tag }}"><span class="label">{{ tag }}</span><span class="badge">{{ size }}</span></a>
     {% endfor %}
