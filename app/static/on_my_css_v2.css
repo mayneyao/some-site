@@ -107,8 +107,8 @@ button{
 
 #back2top{
     position: fixed;
-    bottom: 150px;
-    right: 50px;;
+    bottom: 10px;
+    right: 10px;
     display: none;
 }
 
