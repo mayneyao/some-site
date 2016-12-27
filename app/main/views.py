@@ -52,7 +52,6 @@ def tags(tag):
 
 @main.route("/p_v2/<name>")
 def post_v2(name):
-    name = name.lower()
     file  = POST_PATH+name+".md"
     with open(file,'r',encoding='utf-8') as f:
         content = md.convert(f.read())
@@ -67,7 +66,7 @@ def post_v2(name):
         text = f.read()
         posts = re.findall("\*\s{1}\[([\u4E00-\u9FA5\-\w \&\/\、\(\)]+)\]\(([\w\d_ \.\-]+)\)(#[\w\u4E00-\u9FA5\s,]+#)*",
                            text,re.IGNORECASE)
-        i = [post for post in posts if name in post[0]]
+        i = [post for post in posts if name in post[1]]
         for name, url, tags in i:
             p_tags = tags[1:-1].split(",")
     post = (name,content,sub_time,up_time,p_tags)
