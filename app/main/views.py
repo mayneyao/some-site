@@ -57,7 +57,7 @@ def post_by_summary():
             tags = tags[1:-1].split(",")
             tags = [tag+str(hash(tag)%6+1) for tag in tags]
 
-            file = POST_PATH + url + ".md"
+            file = POST_PATH + url
             with open(file,"r") as f:
                 summary = f.read().split("<!-- more -->")[0]
                 summary = md.convert(summary)
