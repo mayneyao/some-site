@@ -7,7 +7,7 @@
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/static/on_my_css_v2.css">
-    <title>Mayne's Blog</title>
+    <title>test</title>
     <style>
         .panel{
             border-radius: 2px;
@@ -33,7 +33,10 @@
 </div>
 
 <div class="container" role="main">
-    {% include "i_posts.html" %}
+    <div class="col-md-9">
+        {% block post %}
+        {% endblock %}
+    </div>
     <div class="col-md-3">
         <div class="panel panel-primary">
           <div class="panel-heading">标签</div>
@@ -51,6 +54,7 @@
             </div>
         </div>
     </div>
+
 </div>
 
 <div class="footer col-md-12" role="footer">
