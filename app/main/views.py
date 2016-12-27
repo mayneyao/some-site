@@ -11,7 +11,7 @@ def tags(tag):
     index = POST_PATH+"info.md"
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
-        posts = re.findall("\*\s{1}\[([\u4E00-\u9FA5\-\w \&\/\、\(\)]+)\]\(([\w\d_ \.\-]+)\)(#[\w,]+#)*",text)
+        posts = re.findall("\*\s{1}\[([\u4E00-\u9FA5\-\w \&\/\、\(\)]+)\]\(([\w\d_ \.\-]+)\)(#[\w\u4E00-\u9FA5\s,]+#)*",text)
         i = [ post for post in posts if tag in post[2]]
         posts=[]
         for name,url,tags in i:
@@ -47,7 +47,7 @@ def post_by_summary():
     index = POST_PATH+"info.md"
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
-        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\-\w \&\/\、\(\)]+)\]\(([\w\d_ \.\-]+)\)(#[\w,]+#)*",text)
+        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\-\w \&\/\、\(\)]+)\]\(([\w\d_ \.\-]+)\)(#[\w\u4E00-\u9FA5\s,]+#)*",text)
         posts=[]
         for name,url,tags in i:
             gitlog = os.popen("cd {0}; git log {1}".format(POST_PATH,url)).read()
@@ -100,7 +100,7 @@ def testnew():
     index = POST_PATH+"info.md"
     with open(index,'r',encoding='utf-8') as f:
         text = f.read()
-        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\-\w \&\/\、\(\)]+)\]\(([\w\d_ \.\-]+)\)(#[\w,]+#)*",text)
+        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\-\w \&\/\、\(\)]+)\]\(([\w\d_ \.\-]+)\)(#[\w\u4E00-\u9FA5\s,]+#)*",text)
         posts=[]
         for name,url,tags in i:
             gitlog = os.popen("cd {0}; git log {1}".format(POST_PATH,url)).read()
