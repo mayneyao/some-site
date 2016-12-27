@@ -93,6 +93,15 @@ pre{
     line-height: 50px;
 }
 
+.panel{
+    border-radius: 2px;
+    border: 0;
+    box-shadow: 0 1px 6px 0 rgba(0,0,0,.12), 0 1px 6px 0 rgba(0,0,0,.12);
+}
+.list-group-item {
+    color: #0f0f0f;
+}
+
 /*返回顶部*/
 button{
     border: none;
