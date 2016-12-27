@@ -279,16 +279,6 @@ article{
     border-radius: 2%;
 }
 
-/*编辑*/
-.flask-pagedown-input{
-    margin: 0px;
-    width: 900px;
-    height: 700px;
-    resize: none;
-}
-.flask-pagedown-preview{
-
-}
 
 .page-button{
     background: #eee;
