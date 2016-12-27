@@ -5,10 +5,6 @@ from .util import TPB,get_tags,time_format
 from ..config import POST_PATH
 import os,re
 
-@main.route("/tags")
-def tags_cloud():
-    tags = get_tags()
-    return render_template("index.html",tags=tags)
 
 @main.route("/tags/<tag>")
 def tags(tag):
