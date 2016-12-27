@@ -24,13 +24,13 @@
         {% for name,url,tags,subtime in posts %}
             <div class="post">
                 <a href="/p_v2/{{ url[:-3] }}">{{ name }}</a>
-                <div class="tags">
+                <span class="label">
                     {% for tag in tags %}
                     <span class="tag{{ tag[-1] }}">
                         <a href="/tags/{{ tag[:-1] }}">{{ tag[:-1] }}</a>
                     </span>
                     {% endfor %}
-                </div>
+                </span>
                 <div class="datetime">{{ subtime }}</div>
                 <div class="post_less">
                     <p>
@@ -41,7 +41,7 @@
         {% endfor %}
     </div>
     <div class="col-md-3">
-        <div class="panel panel-info">
+        <div class="panel panel-primary">
           <div class="panel-heading">标签</div>
             <div class="list-group">
                 {% for tag,size in tags.items() %}
@@ -50,7 +50,7 @@
             </div>
         </div>
 
-        <div class="panel panel-success">
+        <div class="panel panel-primary">
           <div class="panel-heading">归档</div>
             <div class="panel-body list-group">
                暂无
