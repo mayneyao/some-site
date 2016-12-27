@@ -6,8 +6,8 @@
                 <div class="post-meta">
                     <span class="post-time"><span class="glyphicon glyphicon-time"></span>{{ subtime }}</span>
                     <span class="post-tags">
-                        {% for tag in p_tags %}
-                            <span class="lable"><a href="/tags/{{ tag[:-1] }}">{{ tag[:-1] }}</a></span>
+                        {% for p_tag in p_tags %}
+                            <span class="lable"><a href="/tags/{{ p_tag[:-1] }}">{{ p_tag[:-1] }}</a></span>
                         {% endfor %}
                     </span>
                 </div>
