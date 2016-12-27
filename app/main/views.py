@@ -61,7 +61,16 @@ def post_v2(name):
     up_time = time_format(x[0])
     if sub_time==up_time:
         up_time = False
-    return render_template("p_v3.html",content=content,title=name,sub_time=sub_time,up_time=up_time,tags = get_tags(),archive=get_archive())
+    index = POST_PATH + "info.md"
+    with open(index, 'r', encoding='utf-8') as f:
+        text = f.read()
+        posts = re.findall("\*\s{1}\[([\u4E00-\u9FA5\-\w \&\/\、\(\)]+)\]\(([\w\d_ \.\-]+)\)(#[\w\u4E00-\u9FA5\s,]+#)*",
+                           text)
+        i = [post for post in posts if name in post[0]]
+        for name, url, tags in i:
+            p_tags = tags.split(",")
+    post = (name,content,sub_time,up_time,p_tags)
+    return render_template("p_v3.html",post=post,tags = get_tags(),archive=get_archive())
 
 @main.route("/")
 def post_by_summary():
