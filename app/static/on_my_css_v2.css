@@ -1,5 +1,7 @@
 /*通用部分*/
-
+h1,h2,h3,h4,h5,h6{
+    overflow-wrap: break-word;
+}
 /*代码高亮--*/
 .codehilite .hll { background-color: #4f424c; }
 .codehilite  { background: #2f1e2e; color: #e7e9db }
