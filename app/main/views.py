@@ -48,7 +48,7 @@ def tags(tag):
                 summary = f.read().split("<!-- more -->")[0]
                 summary = md.convert(summary)
             posts.append((name,url,tags,sub_time,summary))
-    return render_template("posts_by_tag.html",posts=posts[::-1],tags=get_tags())
+    return render_template("posts_by_tag.html",posts=posts[::-1],tags=get_tags(),archive=get_archive())
 
 @main.route("/p_v2/<name>")
 def post_v2(name):
@@ -61,7 +61,7 @@ def post_v2(name):
     up_time = time_format(x[0])
     if sub_time==up_time:
         up_time = False
-    return render_template("p_v3.html",content=content,title=name,sub_time=sub_time,up_time=up_time,tags = get_tags())
+    return render_template("p_v3.html",content=content,title=name,sub_time=sub_time,up_time=up_time,tags = get_tags(),archive=get_archive())
 
 @main.route("/")
 def post_by_summary():
@@ -119,23 +119,4 @@ def meiju():
         return render_template("meiju_kong.html")
 @main.route("/test")
 def testnew():
-    index = POST_PATH+"info.md"
-    with open(index,'r',encoding='utf-8') as f:
-        text = f.read()
-        i = re.findall("\*\s{1}\[([\u4E00-\u9FA5\-\w \&\/\、\(\)]+)\]\(([\w\d_ \.\-]+)\)(#[\w\u4E00-\u9FA5\s,]+#)*",text)
-        posts=[]
-        for name,url,tags in i:
-            gitlog = os.popen("cd {0}; git log {1}".format(POST_PATH,url)).read()
-            x = re.findall("Date:([\w\d :+]+)\+",gitlog)
-            sub_time = time_format(x[-1])
-            tags = tags[1:-1].split(",")
-            tags = [tag+str(hash(tag)%6+1) for tag in tags]
-
-            file = POST_PATH + url
-            with open(file,"r") as f:
-                summary = f.read().split("<!-- more -->")[0]
-                summary = md.convert(summary)
-
-            posts.append((name,url,tags,sub_time,summary))
-    tags = get_tags()
-    return render_template("itest.html", tags=tags,posts=posts[::-1])
+    return "ok"
