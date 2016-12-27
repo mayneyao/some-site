@@ -5,10 +5,32 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="/static/oh_my_js.js"></script>
     <title>Title</title>
 </head>
 <body>
 {% block all %}
 {% endblock %}
+    <div id="mask"></div>
+    <div id="sidebar">
+    <ul>
+        <li><a href="/subpost">发表文章</a></li>
+        {% if post %}
+        <li><a href="/edit/{{ post.id }}">修改文章</a></li>
+        {% else %}
+        {% endif %}
+        {% if title %}
+        <li><a href="https://www.gitbook.com/book/mayneyao/blog/edit#/edit/master/{{ title }}.md">编辑文章</a></li>
+        {% endif %}
+        <li><a href="/manage">后台管理</a></li>
+    </ul>
+    </div>
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+        <div class="flash">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
 </body>
 </html>
