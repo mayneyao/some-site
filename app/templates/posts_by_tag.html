@@ -1,33 +1,23 @@
 {% extends 'base.html' %}
-{#{% import "pagination.html" as macros %}#}
 {% block main %}
-<div class="col-md-9" role="posts">
-    {% for name,url,tags,subtime,summary in posts %}
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <h3 class="post-title"><a href="/p_v2/{{ url[:-3] }}">{{ name }}</a></h3>
-                <div class="post-meta">
-                    <span class="post-time"><span class="glyphicon glyphicon-time"></span>{{ subtime }}</span>
-                    <span class="post-tags">
-                        {% for tag in tags %}
-                            <span class="lable"><a href="/tags/{{ tag[:-1] }}">{{ tag[:-1] }}</a></span>
-                        {% endfor %}
-                    </span>
-                </div>
-                <div class="post-content">
-                    {{ summary |safe}}
-                    <a href="p_v2/{{ url[:-3] }}">阅读全文...</a>
-                </div>
+    <div class="container" role="main">
+    {% include "i_posts.html" %}
+    <div class="col-md-3">
+        <div class="panel panel-primary">
+          <div class="panel-heading">标签</div>
+            <div class="list-group">
+                {% for tag,size in tags.items() %}
+                    <a class="list-group-item" href="/tags/{{ tag }}" ><span>{{ tag }}</span><span class="badge">{{ size }}</span></a>
+                {% endfor %}
             </div>
         </div>
-    {% endfor %}
-</div>
-{#    {{ macros.pagination_widget(pagination,'.index') }}#}
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">归档</div>
+            <div class="panel-body list-group">
+               暂无
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
-{#{% block side %}#}
-{#    <ul class="tags_ul">#}
-{#        {% for tag,size in tags.items() %}#}
-{#            <li class="tags_li" style="font-size: {{ 8*size }}px;margin:{{ 2*size }}px "><span class="tag{{ size%6 + 1 }}"><a href="/tags/{{ tag }}">{{ tag }}</a></span></li>#}
-{#        {% endfor %}#}
-{#    </ul>#}
-{#{% endblock %}#}
