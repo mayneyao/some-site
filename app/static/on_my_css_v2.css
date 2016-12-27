@@ -89,6 +89,9 @@ pre{
     line-height: 50px;
 }
 
+.panel img{
+    max-width: 100%;
+}
 
 /*返回顶部*/
 button{
