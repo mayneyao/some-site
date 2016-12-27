@@ -19,7 +19,7 @@ def archive(time):
             gitlog = os.popen("cd {0} ; git log {1}".format(POST_PATH,url)).read()
             x = re.findall("Date:([\w\d :+]+)\+",gitlog)
             sub_time = time_format(x[-1])
-            y, m, d = sub_time.split("-")
+            y, m, d = sub_time.mobasplit("-")
             if year == y and month == m:
                 file = POST_PATH + url
                 with open(file,"r") as f:
