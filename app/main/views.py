@@ -19,18 +19,15 @@ def tags(tag):
         i = [ post for post in posts if tag in post[2]]
         posts=[]
         for name,url,tags in i:
+            #得到tags
             tags = tags[1:-1].split(",")
             tags = [tag+str(hash(tag)%6+1) for tag in tags]
-
+            #
             gitlog = os.popen("cd {0} ; git log {1}".format(POST_PATH,url)).read()
             x = re.findall("Date:([\w\d :+]+)\+",gitlog)
             sub_time = time_format(x[-1])
 
-            file = POST_PATH + url + ".md"
-            with open(file,"r") as f:
-                summary = f.read().split("<!-- more -->")[0]
-                summary = md.convert(summary)
-            posts.append((name,url,tags,sub_time,summary))
+            posts.append((name,url,tags,sub_time))
     return render_template("posts_by_tag.html",posts=posts[::-1])
 
 @main.route("/p_v2/<name>")
@@ -60,7 +57,12 @@ def post_by_summary():
             tags = tags[1:-1].split(",")
             tags = [tag+str(hash(tag)%6+1) for tag in tags]
 
-            posts.append((name,url,tags,sub_time))
+            file = POST_PATH + url + ".md"
+            with open(file,"r") as f:
+                summary = f.read().split("<!-- more -->")[0]
+                summary = md.convert(summary)
+
+            posts.append((name,url,tags,sub_time,summary))
     all_tags = get_tags()
     return render_template("allpost_v2.html",posts=posts[::-1],tags=all_tags)
 
