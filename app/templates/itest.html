@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <title>test</title>
+</head>
+<body>
+<div id="header" >
+    <nav class="navbar navbar-default col-md-12" role="navigation">
+      <div class="container">
+        ...
+      </div>
+    </nav>
+</div>
+
+<div class="container" role="main">
+    <div class="col-md-9" id="main">
+        dasdas
+    </div>
+    <div class="col-md-3">
+        <div class="list-group col-md-4">
+            {% for tag,size in tags.items() %}
+                <a class="list-group-item" href="/tags/{{ tag }}"><span class="label">{{ tag }}</span><span class="badge">{{ size }}</span></a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="footer col-md-12" role="footer">
+    <div class="footinfo">
+        <p>Copyright © 2016 Mayne | powered by <a href="https://github.com/MayneYao/gine">gine</a> </p>
+        <span><a href="https://github.com/MayneYao"><img src="/static/img/github.png" alt=""></a></span>
+    </div>
+</div>
+</body>
+</html>
