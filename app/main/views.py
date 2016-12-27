@@ -22,8 +22,11 @@ def tags(tag):
             gitlog = os.popen("cd {0} ; git log {1}".format(POST_PATH,url)).read()
             x = re.findall("Date:([\w\d :+]+)\+",gitlog)
             sub_time = time_format(x[-1])
-
-            posts.append((name,url,tags,sub_time))
+            file = POST_PATH + url
+            with open(file,"r") as f:
+                summary = f.read().split("<!-- more -->")[0]
+                summary = md.convert(summary)
+            posts.append((name,url,tags,sub_time,summary))
     return render_template("posts_by_tag.html",posts=posts[::-1])
 
 @main.route("/p_v2/<name>")
