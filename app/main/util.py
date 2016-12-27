@@ -1,5 +1,6 @@
 import requests
 import re
+import os
 from bs4 import BeautifulSoup as bs
 from bs4 import element
 from .. config import POST_PATH
@@ -76,6 +77,26 @@ def get_tags():
             del a_tags[""]
     return a_tags
 
+
+def get_archive():
+    index = POST_PATH+"info.md"
+    with open(index,'r',encoding='utf-8') as f:
+        text = f.read()
+        posts = re.findall("\*\s{1}\[([\u4E00-\u9FA5\-\w \&\/\、\(\)]+)\]\(([\w\d_ \.\-]+)\)(#[\w\u4E00-\u9FA5\s,]+#)*",text)
+        i = [ post for post in posts]
+        archive=[]
+        for name,url,tags in i:
+            gitlog = os.popen("cd {0} ; git log {1}".format(POST_PATH,url)).read()
+            x = re.findall("Date:([\w\d :+]+)\+",gitlog)
+            sub_time = time_format(x[-1])
+            y,m,d = sub_time.split("-")
+            y_m = y+"-"+m
+            archive.append(y_m)
+        ctn = Counter()
+        for i in archive:
+            ctn[i] += 1
+        archive  =dict(ctn)
+    return archive
 if __name__=="__main__":
     res,flag = TPB("westworld","S01E02").get_magnet_info()
     for i in res:
