@@ -2,23 +2,24 @@
 {% block main %}
     <div class="container" role="main">
     {% include "i_posts.html" %}
-        <div class="col-md-3">
-            <div class="panel panel-primary">
-              <div class="panel-heading">标签</div>
+    <div class="col-md-3">
+        <div class="panel panel-primary">
+          <div class="panel-heading">标签</div>
+            <div class="list-group">
+                {% for tag,size in tags.items() %}
+                    <a class="list-group-item" href="/tags/{{ tag }}" ><span>{{ tag }}</span><span class="badge">{{ size }}</span></a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">归档</div>
                 <div class="list-group">
-                    {% for tag,size in tags.items() %}
-                        <a class="list-group-item" href="/tags/{{ tag }}" ><span>{{ tag }}</span><span class="badge">{{ size }}</span></a>
+                    {% for time,size in archive.items() %}
+                        <a class="list-group-item" href="/archive/{{ time }}" ><span>{{ time }}</span><span class="badge">{{ size }}</span></a>
                     {% endfor %}
                 </div>
             </div>
-            <div class="panel panel-primary">
-              <div class="panel-heading">归档</div>
-                    <div class="list-group">
-                        {% for time,size in archive.items() %}
-                            <a class="list-group-item" href="/archive/{{ time }}" ><span>{{ time }}</span><span class="badge">{{ size }}</span></a>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
+        </div>
     </div>
 {% endblock %}
