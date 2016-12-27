@@ -172,6 +172,7 @@ button{
 }
 
 .footer{
+    text-align: center;
     border-top: 1px #eee solid;
 }
 .footinfo{
