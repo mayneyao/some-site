@@ -41,7 +41,7 @@ def post_v2(name):
     up_time = time_format(x[0])
     if sub_time==up_time:
         up_time = False
-    return render_template("p_v3.html",content=content,title=name,sub_time=sub_time,up_time=up_time)
+    return render_template("p_v3.html",content=content,title=name,sub_time=sub_time,up_time=up_time,tags = get_tags())
 
 @main.route("/")
 def post_by_summary():

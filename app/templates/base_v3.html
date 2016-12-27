@@ -11,20 +11,6 @@
 <body>
 {% block all %}
 {% endblock %}
-    <div id="mask"></div>
-    <div id="sidebar">
-    <ul>
-        <li><a href="/subpost">发表文章</a></li>
-        {% if post %}
-        <li><a href="/edit/{{ post.id }}">修改文章</a></li>
-        {% else %}
-        {% endif %}
-        {% if title %}
-        <li><a href="https://www.gitbook.com/book/mayneyao/blog/edit#/edit/master/{{ title }}.md">编辑文章</a></li>
-        {% endif %}
-        <li><a href="/manage">后台管理</a></li>
-    </ul>
-    </div>
     <div class="container">
         {% for message in get_flashed_messages() %}
         <div class="flash">
