@@ -4,7 +4,7 @@ h1,h2,h3,h4,h5,h6{
 }
 /*代码高亮--*/
 .codehilite .hll { background-color: #4f424c; }
-.codehilite  { background: #2f1e2e; color: #e7e9db }
+.codehilite  { background: #2f1e2e; color: #e7e9db; border-radius: 5px;}
 .codehilite pre { background: #2f1e2e; color: #e7e9db }
 .codehilite .c { color: #776e71 } /* Comment */
 .codehilite .err { color: #ef6155 } /* Error */
