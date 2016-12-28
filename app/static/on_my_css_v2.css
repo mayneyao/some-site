@@ -103,7 +103,9 @@ button{
     padding: 10px;
 }
 
-
+.post-meta{
+    border-bottom: 1px solid #eee;
+}
 
 #back2top{
     position: fixed;
