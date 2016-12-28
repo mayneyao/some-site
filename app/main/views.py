@@ -16,6 +16,7 @@ def archive(time):
         i = [ post for post in posts]
         posts=[]
         for name,url,tags in i:
+            tags = tags[1:-1].split(",")
             gitlog = os.popen("cd {0} ; git log {1}".format(POST_PATH,url)).read()
             x = re.findall("Date:([\w\d :+]+)\+",gitlog)
             sub_time = time_format(x[-1])
@@ -38,8 +39,7 @@ def tags(tag):
         for name,url,tags in i:
             #得到tags
             tags = tags[1:-1].split(",")
-            tags = [tag+str(hash(tag)%6+1) for tag in tags]
-            #
+
             gitlog = os.popen("cd {0} ; git log {1}".format(POST_PATH,url)).read()
             x = re.findall("Date:([\w\d :+]+)\+",gitlog)
             sub_time = time_format(x[-1])
