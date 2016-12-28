@@ -28,16 +28,35 @@
 </head>
 <body>
 {% block navbar %}
-    <div id="header" >
-    <nav class="navbar navbar-default col-md-12" role="navigation">
-        <div class="container">
-        <span id="logo"><a href="/"><img src="/static/img/logo.png" alt="" style="width:130px";></a></span>
-        <ul>
-            <li><a href="/meiju">追剧</a></li>
-            <li><a id="menu-toggle" href="#">菜单</a></li>
-        </ul>
+    <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Brand</a>
         </div>
-    </nav>
+
+        <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-6" aria-expanded="false" style="height: 1px;">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+    </div>
+{#    <div id="header" >#}
+{#    <nav class="navbar navbar-default col-md-12" role="navigation">#}
+{#        <div class="container">#}
+{#        <span id="logo"><a href="/"><img src="/static/img/logo.png" alt="" style="width:130px";></a></span>#}
+{#        <ul>#}
+{#            <li><a href="/meiju">追剧</a></li>#}
+{#            <li><a id="menu-toggle" href="#">菜单</a></li>#}
+{#        </ul>#}
+{#        </div>#}
+{#    </nav>#}
 </div>
 {% endblock %}
 
