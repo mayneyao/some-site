@@ -84,7 +84,6 @@ def post_by_summary():
             x = re.findall("Date:([\w\d :+]+)\+",gitlog)
             sub_time = time_format(x[-1])
             tags = tags[1:-1].split(",")
-            tags = [tag+str(hash(tag)%6+1) for tag in tags]
 
             file = POST_PATH + url
             with open(file,"r") as f:
