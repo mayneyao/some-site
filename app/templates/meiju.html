@@ -4,31 +4,33 @@
     <form action="/meiju" method="post" class="form container" >
         <input type="text" name="name" placeholder="剧名" class="form-control">
         <input type="text" name="added" placeholder="剧集" class="form-control">
-        <input type="submit" name="" id="" class="button button-primary">
+        <input type="submit" name="" id="" class="btn btn-primary">
     </form>
     {% if flag %}
-    <table  class="table table-striped">
-    <thead>
-    <tr>
-        <td>资源</td>
-        <td>上传时间</td>
-        <td>资源大小</td>
-        <td>参考值</td>
-    </tr>
-    </thead>
-    <tbody>
-        {% for i in res %}
-            <tr>
-                <td><a href="{{ i[3] }}">{{ i[0] }}</a></td>
-                <td>{{ i[1] }}</td>
-                <td>{{ i[2] }}</td>
-                <td>{{ i[4]+i[5] }}</td>
-            </tr>
-        {% endfor %}
-    </tbody>
-    </table>
-    {% else %}
-        <p>/(ㄒoㄒ)/~~ 抱歉没找到您要的资源</p>
-    {% endif %}
+    <div class="container">
+        <table  class="table table-striped">
+        <thead>
+        <tr>
+            <td>资源</td>
+            <td>上传时间</td>
+            <td>资源大小</td>
+            <td>参考值</td>
+        </tr>
+        </thead>
+        <tbody>
+            {% for i in res %}
+                <tr>
+                    <td><a href="{{ i[3] }}">{{ i[0] }}</a></td>
+                    <td>{{ i[1] }}</td>
+                    <td>{{ i[2] }}</td>
+                    <td>{{ i[4]+i[5] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        {% else %}
+            <p>/(ㄒoㄒ)/~~ 抱歉没找到您要的资源</p>
+        {% endif %}
+        </div>
     </div>
 {% endblock %}
