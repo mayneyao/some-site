@@ -23,12 +23,15 @@
         a {
             text-decoration: none;
         }
+        .header{
+            background: #351C45;
+        }
 
     </style>
 </head>
 <body>
 {% block navbar %}
-    <div class="col-md-12">
+    <div class="col-md-12 header">
         <div class="container">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
@@ -38,9 +41,11 @@
         </div>
     </div>
     <div class="jumbotron">
-        <h1>Hello, world!</h1>
-        <p>...</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+        <div class="container">
+            <h1>Hello, world!</h1>
+            <p>...</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+        </div>
     </div>
 {#    <div id="header" >#}
 {#    <nav class="navbar navbar-default col-md-12" role="navigation">#}
