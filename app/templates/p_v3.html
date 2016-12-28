@@ -7,8 +7,10 @@
             <div class="panel-body">
                 <h2 class="post-title">{{ post[0] }}</h2>
                 <div class="post-meta">
-                    <span class="post-time"><span class="glyphicon glyphicon-time"></span>{{ post[2] }}</span>
-                    {% if post[3] %}<span>{{ post[3] }}</span>{% endif %}
+                    <span class="glyphicon glyphicon-time"></span>
+                    <span class="post-time">{{ post[2] }}</span>
+                    {% if post[3] %}<span class="post-time">{{ post[3] }}</span>{% endif %}
+                    <span class="glyphicon glyphicon-tags"></span>
                     <span class="post-tags">
                         {% for p_tag in post[4] %}
                             <span class="lable"><a href="/tags/{{ p_tag }}">{{ p_tag}}</a></span>

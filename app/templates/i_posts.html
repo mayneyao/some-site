@@ -4,7 +4,9 @@
             <div class="panel-body">
                 <h3 class="post-title"><a href="/p_v2/{{ url[:-3] }}">{{ name }}</a></h3>
                 <div class="post-meta">
-                    <span class="post-time"><span class="glyphicon glyphicon-time"></span>{{ subtime }}</span>
+                    <span class="glyphicon glyphicon-time"></span>
+                    <span class="post-time">{{ subtime }}</span>
+                    <span class="glyphicon glyphicon-tags"></span>
                     <span class="post-tags">
                         {% for p_tag in p_tags %}
                             <span class="lable"><a href="/tags/{{ p_tag[:-1] }}">{{ p_tag[:-1] }}</a></span>
