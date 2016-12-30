@@ -6,6 +6,10 @@ from ..config import POST_PATH
 import os,re
 
 
+@main.route("/weather")
+def weather():
+    return render_template("weather.html")
+
 @main.route("/archive/<time>")
 def archive(time):
     index = POST_PATH+"info.md"
