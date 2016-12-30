@@ -99,7 +99,7 @@ function changecity(){
 }
 function aqitest(aqi){
     if(aqi>=0&&aqi<=50) t = "<span style='color: #00e400'>优<span>";
-    if(aqi>=51&&aqi<=100) t ="<span style='color: #ff0'>良<span>";
+    if(aqi>=51&&aqi<=100) t ="<span style='color: #ff0;background: #000'>良<span>";
     if(aqi>=101&&aqi<=150) t ="<span style='color: #ff7e00'>轻度污染<span>";
     if(aqi>=151&&aqi<=200) t ="<span style='color: #f00'>中度污染<span>";
     if(aqi>=201&&aqi<=300) t ="<span style='color: #99004c'>重度污染<span>";
