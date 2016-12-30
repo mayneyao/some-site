@@ -7,15 +7,17 @@
     }
 }
 
+.line_top{
+    border-top: 1px solid #eeeeee;
+}
 #container {
-    width: 1167px;
-    height: 988px;
+    width: 1000px;
+    height: 900px;
 }
 
 #tianqi{
     width: 700px;
     padding: 20px;
-
 }
 
 ul{
