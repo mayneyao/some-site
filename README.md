@@ -14,27 +14,21 @@
 + 评论采用第三方评论框（多说）。
 
 ## 使用
-+ 克隆程序 git clone https://github.com/MayneYao/gine.git
-+ 克隆你在gitbook上创建的博文仓库 git clone https://git.gitbook.com/yourgitbook/yourbook.git
-+ 安装依赖 
-虚拟环境
+1. 克隆你在gitbook上创建的博文仓库 
+```git clone https://git.gitbook.com/yourgitbook/yourbook.git```
+2. 环境&&依赖 
 ```
-pip install virtualenv
-virtualenv -p /usr/bin/python3 venv
+pip3 install -r requests.txt
+```
+3. 配置文件
+在app目录下，新建config.py 文件。只需要指定POST_PATH的位置即可，eg:
+```
+POST_PATH = "/path/to/yourbook/"
+```
+4. 运行
+```
+python3 manage.py runserver --host 指定ip，默认本地  --port 指定端口
 ```
 
 
-依赖包
-```
-beautifulsoup4==4.5.1
-Flask==0.11.1
-Flask-Script==2.0.5
-gunicorn==19.6.0
-html5lib==0.999999999
-Jinja2==2.8
-Markdown==2.6.7
-Pygments==2.1.3
-requests==2.12.1
-Werkzeug==0.11.11
-``` 
 
