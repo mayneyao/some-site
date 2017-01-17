@@ -1,14 +1,10 @@
 from .. import md
 from . import main
-from flask import render_template,request,flash
-from .util import TPB,get_tags,time_format,get_archive
+from flask import render_template,request
+from .util import get_tags,time_format,get_archive
 from ..config import POST_PATH
 import os,re
 
-
-@main.route("/weather")
-def weather():
-    return render_template("weather.html")
 
 @main.route("/archive/<time>")
 def archive(time):
@@ -118,17 +114,6 @@ def hook():
     os.popen(" pkill gunicorn && gunicorn manage:app")
     return "ok"
 
-@main.route("/meiju",methods=['POST','GET'])
-def meiju():
-    if request.method== "POST":
-        name = request.form['name']
-        added = request.form['added']
-        res,flag = TPB(name,added).get_magnet_info()
-        if flag:
-            res= res[:10]
-        return render_template("meiju.html",res=res,flag=flag)
-    else:
-        return render_template("meiju_kong.html")
 @main.route("/test")
 def testnew():
     return "ok"
