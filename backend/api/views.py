@@ -10,5 +10,5 @@ def webhook(request):
     data = json.loads(request.body)
     repository = data['repository']['name']
     if repository == 'blog':
-        subprocess.check_output('git', '-C', '/root/blog', 'pull')
+        subprocess.check_output(['git', '-C', '/root/blog', 'pull'])
     return JsonResponse(data)

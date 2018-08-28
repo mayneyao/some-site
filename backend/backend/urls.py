@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import include
 from django.contrib import admin
-from django.urls import path
 from django.http import HttpResponseRedirect
+from django.urls import path
 
 
 # from rest_framework import routers
@@ -36,4 +36,5 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include('api.urls')),
     path('blog', blog),
+    path('/', blog),
 ]
