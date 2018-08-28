@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
+from django.http import HttpResponseRedirect
+
+
 # from rest_framework import routers
 
 # Routers provide an easy way of automatically determining the URL conf.
@@ -24,10 +27,13 @@ from django.urls import path
 # router.register('tag', api.TagViewSet)
 # router.register('category', api.CategoryViewSet)
 
+def blog(request):
+    return HttpResponseRedirect('https://blog.gine.me')
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    # path('api/', include(router.urls)),
     path('api/', include('api.urls')),
-    # path('ocr/', views.api),
+    path('blog', blog),
 ]
