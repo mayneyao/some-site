@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'blog',
     'ocr',
-    'utils'
 ]
 
 MIDDLEWARE = [

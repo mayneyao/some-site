@@ -8,6 +8,7 @@ django = "*"
 djangorestframework = "*"
 pytesseract = "*"
 requests = "*"
+pandas = "*"
 
 [dev-packages]
 

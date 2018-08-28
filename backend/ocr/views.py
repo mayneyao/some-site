@@ -2,7 +2,7 @@ import json
 
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from utils.ocr_api.ocr import get_text_from_img
+from backend.utils.ocr_api.ocr import get_text_from_img
 
 REPLACE_DICT = {}
 
