@@ -9,6 +9,7 @@ djangorestframework = "*"
 pytesseract = "*"
 requests = "*"
 pandas = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 
