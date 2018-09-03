@@ -81,6 +81,7 @@ def get_text_from_img(img, lang):
         key = '{}-{}-{}-{}'.format(x1, y1, x2, y2)
         boxes_data[key] = val
     text = pytesseract.image_to_string(image, lang)
+
     return {'boxes': boxes_data, 'text': text}
 
 

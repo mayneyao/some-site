@@ -12,17 +12,20 @@ REPLACE_DICT = {}
 def api(request):
     # api for wechat-read book note
 
-    d = request.POST
-    img_url = d.get('url', None)
-    if img_url and img_url != 'false':
-        img = img_url
-    else:
-        image_file = request.FILES['image']
-        img = Image.open(image_file.file)
+    try:
+        d = request.POST
+        img_url = d.get('url', None)
+        if img_url and img_url != 'false':
+            img = img_url
+        else:
+            image_file = request.FILES['image']
+            img = Image.open(image_file.file)
 
-    data = {
-        'img': img,
-        'lang': d.get('lang')
-    }
-    res = get_text_from_img(**data)
-    return JsonResponse(res)
+        data = {
+            'img': img,
+            'lang': d.get('lang')
+        }
+        res = get_text_from_img(**data)
+        return JsonResponse(res)
+    except Exception:
+        return JsonResponse({'error': ''})
