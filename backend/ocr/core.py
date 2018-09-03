@@ -54,7 +54,7 @@ def handle_img(img):
     img = img.convert('L')
     img = depoint(img)
     # 二值处理
-    img = binarizing(img, 203)
+    # img = binarizing(img, 203)
     # img.show()
     # todo
     return img
