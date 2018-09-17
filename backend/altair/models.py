@@ -8,7 +8,7 @@ class GifTemplateTag(models.Model):
 
 
 class GifTemplate(models.Model):
-    img_url = models.URLField(verbose_name='图片地址')
+    img_url = models.URLField(verbose_name='图片URL')
     # json parse
     caption_template = models.TextField(verbose_name='字幕模板')
     tags = models.ManyToManyField(to=GifTemplateTag, verbose_name='标签', null=True, blank=True)

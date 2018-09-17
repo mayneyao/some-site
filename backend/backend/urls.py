@@ -38,5 +38,5 @@ urlpatterns = [
     path('ocr/', include('ocr.urls')),
     path('gif/', include('altair.urls')),
     path('blog', blog),
-    re_path(r'^$', blog),
+    re_path(r'^/$', blog),
 ]
