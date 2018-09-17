@@ -24,7 +24,7 @@ SECRET_KEY = '5#eug99ujb5ci=%$3$&!+whorxbl3rv_oi%w8865ue(sr(9p6m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['gine.me', '127.0.0.1']
+ALLOWED_HOSTS = ['gine.me', '127.0.0.1', 'altair.gine.me']
 
 # Application definition
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'ocr',
+    'altair',
 ]
 
 MIDDLEWARE = [
@@ -121,11 +122,12 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
 
 CORS_ORIGIN_WHITELIST = (
     'localhost:3000',
-    '127.0.0.1:3000'
+    '127.0.0.1:3000',
+    'altair.gine.me'
 )

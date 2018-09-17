@@ -36,6 +36,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include('api.urls')),
     path('ocr/', include('ocr.urls')),
+    path('gif/', include('altair.urls')),
     path('blog', blog),
-    re_path(r'^/$', blog),
+    re_path(r'^$', blog),
 ]
