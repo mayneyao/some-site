@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '5#eug99ujb5ci=%$3$&!+whorxbl3rv_oi%w8865ue(sr(9p6m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['gine.me', '127.0.0.1', 'altair.gine.me']
 
